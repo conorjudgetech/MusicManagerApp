@@ -1,7 +1,7 @@
 package musicmanager;
 
 /**
- *MusicManagerApp.java
+ * MusicManagerApp.java
  * 12/03/24
  * @author Conor Judge
  */
