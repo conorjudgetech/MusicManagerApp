@@ -150,6 +150,62 @@ public class MusicManagerApp {
         // Create an instance of MusicManagerGUI
         MusicManagerGUI myGUI = new MusicManagerGUI();
         myGUI.setVisible(true);
+        
+        //  action listeners to GUI components and handle events
+        myGUI.getAddBTN().addActionListener(e -> {
+            String addItem = myGUI.getAddTF().getText();
+            myApp.addItem(addItem);
+            myGUI.getAddTF().setText(""); // Clear the text field after adding
+        });
+        
+        // action listener for deleting item
+        myGUI.getDeleteBTN().addActionListener(e -> {
+            String deleteItem = myGUI.getDeleteTF().getText();
+            myApp.deleteItem(deleteItem);
+            myGUI.getDeleteTF().setText(""); // Clear the text field after deleting
+        });
+  
+        // action listener for moving last item in list 1 to list 3
+        myGUI.getMove2BTN().addActionListener(e -> {
+            myApp.moveLastItemToList2();
+        });
+        
+        // action listener for moving last item in list 1 to list 3
+        myGUI.getMove3BTN().addActionListener(e -> {
+            myApp.moveLastItemToList3();
+        });
+        
+        // action listener for repeat toggle button
+        myGUI.getRepeatTGL().addActionListener(e -> {
+        boolean enabled = myGUI.getRepeatTGL().isSelected();
+        myApp.setRepeatEnabled(enabled);
+        });
 
+
+        // action listener for searching
+        myGUI.getSearchBTN().addActionListener(e -> {
+            String searchQuery = myGUI.getSearchTF().getText();
+            String searchResult = myApp.searchItem(searchQuery);
+            myGUI.getOutputTextArea().setText(searchResult); // Display search result
+            myGUI.getSearchTF().setText(""); // Clear the text field after searching
+        });
+        
+        // action listener for printing list1
+        myGUI.getPrintList1BTN().addActionListener(e -> {
+            String list1Result = myApp.printList(1);
+            myGUI.getOutputTextArea().setText(list1Result); // Display list1
+        });
+        
+        //Add action listener for printing list2
+        myGUI.getPrintList2BTN().addActionListener(e -> {
+            String list2Result = myApp.printList(2);
+            myGUI.getOutputTextArea().setText(list2Result); // Display list2
+        });
+        
+        //Add action listener for printing list3
+        myGUI.getPrintList3BTN().addActionListener(e -> {
+            String list3Result = myApp.printList(3);
+            myGUI.getOutputTextArea().setText(list3Result); // Display list3
+        });
     }
 }

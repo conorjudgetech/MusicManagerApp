@@ -6,15 +6,105 @@ package musicmanager;
  * @author Conor Judge
  */
 
-public class MusicManagerGUI extends javax.swing.JFrame {
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JToggleButton;
 
-    /**
-     * Creates new form MusicManagerGUI
-     */
+public class MusicManagerGUI extends javax.swing.JFrame {
+    private MusicManagerApp myApp; // Declare an instance variable
+    private boolean repeatListEnabled = false; // Variable to track if repeat list is enabled
+    
+    
+    
     public MusicManagerGUI() {
         initComponents();
+        myApp = new MusicManagerApp(); // Initialize the instance variable
     }
 
+    // Getter methods for accessing GUI components
+    //Gets the button used for adding items.
+    public JButton getAddBTN() {
+        return addBTN;
+    }
+    
+    //Gets the text field for entering items to add.
+    public JTextField getAddTF() {
+        return addTF;
+    }
+    
+    //Gets the button used for deleting items.
+    public JButton getDeleteBTN() {
+        return deleteBTN;
+    }
+    
+    //Gets the text field for entering items to delete.
+    public JTextField getDeleteTF() {
+        return deleteTF;
+    }
+
+    //Gets the button used for moving items to list 2.
+    public JButton getMove2BTN() {
+        return move2BTN;
+    }
+    
+    //Gets the button used for moving items to list 3
+    public JButton getMove3BTN() {
+        return move3BTN;
+    }
+    
+    //Gets the label for search.
+    public JLabel getSearchLBL() {
+        return searchLBL;
+    }
+    
+    //Gets the button used for searching items.
+    public JButton getSearchBTN() {
+        return searchBTN;
+    }
+    
+    //Gets the text field for entering search queries.
+    public JTextField getSearchTF() {
+        return searchTF;
+    }
+    
+    //Gets the button used for printing Liked Playlist
+    public JButton getPrintList1BTN() {
+        return printList1BTN;
+    }
+    
+    //Gets the button used for printing Genre A
+    public JButton getPrintList2BTN() {
+        return printList2BTN;
+    }
+    
+    //!!!!!!!!!!!!!?????????????!!!!!!!!!!!!!!!!??????????!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Genre B?
+    //Gets the button used for toggling repeat list functionality
+    public JToggleButton getPrintList3BTN() {
+        return printList3BTN;
+    }
+    
+    //Gets the toggle button used for toggling repeat list functionality
+    public JToggleButton getRepeatTGL() {
+        return repeatTGL;
+    }
+    
+    //Gets the text area used for displaying output
+    public JTextArea getOutputTextArea() {
+        return outputTextArea;
+    }
+    
+    //Gets the button used for clearing the display area
+    public JButton getClearBTN() {
+        return clearBTN;
+    }
+    
+    //Gets the button used for exiting the application
+    public JButton getExitBTN() {
+        return exitBTN;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -277,13 +367,13 @@ public class MusicManagerGUI extends javax.swing.JFrame {
 
     private void addBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBTNActionPerformed
         String newItem = addTF.getText(); // Get the text from the JTextField
-        myItemManager.addItem(newItem); // Call the addItem method of your ItemManager instance
+        myApp.addItem(newItem); // Call the addItem method of your ItemManager instance
         addTF.setText(""); // Clear the text field after adding
     }//GEN-LAST:event_addBTNActionPerformed
 
     private void deleteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTNActionPerformed
         String itemToDelete = deleteTF.getText(); // Get the text from the JTextField
-        myItemManager.deleteItem(itemToDelete); // Call the deleteItem method of your ItemManager instance
+        myApp.deleteItem(itemToDelete); // Call the deleteItem method of your ItemManager instance
         deleteTF.setText(""); // Clear the text field after deleting
     }//GEN-LAST:event_deleteBTNActionPerformed
 
@@ -297,7 +387,7 @@ public class MusicManagerGUI extends javax.swing.JFrame {
 
     private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed
         String searchQuery = searchTF.getText(); // Get the text from the JTextField
-        myItemManager.searchItem(searchQuery); // Call the searchItem method of your ItemManager instance
+        myApp.searchItem(searchQuery); // Call the searchItem method of your ItemManager instance
         searchTF.setText(""); // Clear the text field after searching
     }//GEN-LAST:event_searchBTNActionPerformed
 
@@ -311,25 +401,25 @@ public class MusicManagerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_repeatTGLActionPerformed
 
     private void printList1BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printList1BTNActionPerformed
-        myItemManager.printList(1); // Call the printList method of your ItemManager instance with 1 as the argument
+        myApp.printList(1); // Call the printList method of your ItemManager instance with 1 as the argument
     }//GEN-LAST:event_printList1BTNActionPerformed
 
     private void move2BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_move2BTNActionPerformed
         // Call moveLastItemToList2 method of ItemManager when moveToList2BTN is clicked
-        myItemManager.moveLastItemToList2();
+        myApp.moveLastItemToList2();
     }//GEN-LAST:event_move2BTNActionPerformed
 
     private void printList2BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printList2BTNActionPerformed
-        myItemManager.printList(2); // Call the printList method of your ItemManager instance with 2 as the argument
+        myApp.printList(2); // Call the printList method of your ItemManager instance with 2 as the argument
     }//GEN-LAST:event_printList2BTNActionPerformed
 
     private void move3BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_move3BTNActionPerformed
         // Call moveLastItemToList3 method of ItemManager when moveToList3BTN is clicked
-        myItemManager.moveLastItemToList3();
+        myApp.moveLastItemToList3();
     }//GEN-LAST:event_move3BTNActionPerformed
 
     private void printList3BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printList3BTNActionPerformed
-        myItemManager.printList(3); // Call the printList method of your ItemManager instance with 3 as the argument
+        myApp.printList(3); // Call the printList method of your ItemManager instance with 3 as the argument
     }//GEN-LAST:event_printList3BTNActionPerformed
 
     /**

@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Conor Judge
  */
 
-public class ArrayListStack<T> implements Stack<T> {{//<T> the type of elements stored in the stack
+public class ArrayListStack<T> implements Stack<T> {//<T> the type of elements stored in the stack
     private ArrayList<T> stack;
     
     //Constructs an ArrayListStack with an empty ArrayList
