@@ -49,7 +49,7 @@ public class ArrayListDLL<T> implements DLL<T> {//<T> the type of elements store
     }
 
     @Override
-    //Checks if the list is empty.
+    //Checks if the list is empty
     public boolean isEmpty() {
         return list.isEmpty();
     }

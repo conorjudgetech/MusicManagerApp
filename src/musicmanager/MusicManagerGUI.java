@@ -1,16 +1,16 @@
 package musicmanager;
 
-/**
- * MusicManagerGUI.java
- * 12/03/24
- * @author Conor Judge
- */
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
+
+/**
+ * MusicManagerGUI.java
+ * 12/03/24
+ * @author Conor Judge
+ */
 
 public class MusicManagerGUI extends javax.swing.JFrame {
     private MusicManagerApp myApp; // Declare an instance variable
@@ -23,48 +23,48 @@ public class MusicManagerGUI extends javax.swing.JFrame {
         myApp = new MusicManagerApp(); // Initialize the instance variable
     }
 
-    // Getter methods for accessing GUI components
-    //Gets the button used for adding items.
+    // Get methods for accessing GUI components
+    //Gets the button used for adding songs
     public JButton getAddBTN() {
         return addBTN;
     }
     
-    //Gets the text field for entering items to add.
+    //Gets the text field for entering songs to add
     public JTextField getAddTF() {
         return addTF;
     }
     
-    //Gets the button used for deleting items.
+    //Gets the button used for deleting songs
     public JButton getDeleteBTN() {
         return deleteBTN;
     }
     
-    //Gets the text field for entering items to delete.
+    //Gets the text field for entering songs to delete
     public JTextField getDeleteTF() {
         return deleteTF;
     }
 
-    //Gets the button used for moving items to list 2.
+    //Gets the button used for moving songs to Genre A Playlist
     public JButton getMove2BTN() {
         return move2BTN;
     }
     
-    //Gets the button used for moving items to list 3
+    //Gets the button used for moving songs to Genre B Playlist
     public JButton getMove3BTN() {
         return move3BTN;
     }
     
-    //Gets the label for search.
+    //Gets the label for search
     public JLabel getSearchLBL() {
         return searchLBL;
     }
     
-    //Gets the button used for searching items.
+    //Gets the button used for searching songs
     public JButton getSearchBTN() {
         return searchBTN;
     }
     
-    //Gets the text field for entering search queries.
+    //Gets the text field for entering search queries
     public JTextField getSearchTF() {
         return searchTF;
     }
@@ -79,7 +79,6 @@ public class MusicManagerGUI extends javax.swing.JFrame {
         return printList2BTN;
     }
     
-    //!!!!!!!!!!!!!?????????????!!!!!!!!!!!!!!!!??????????!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Genre B?
     //Gets the button used for toggling repeat list functionality
     public JToggleButton getPrintList3BTN() {
         return printList3BTN;
@@ -120,7 +119,6 @@ public class MusicManagerGUI extends javax.swing.JFrame {
         addBTN = new javax.swing.JButton();
         deleteTF = new javax.swing.JTextField();
         deleteBTN = new javax.swing.JButton();
-        moveLastBTN = new javax.swing.JButton();
         searchLBL = new javax.swing.JLabel();
         clearBTN = new javax.swing.JButton();
         searchBTN = new javax.swing.JButton();
@@ -156,13 +154,6 @@ public class MusicManagerGUI extends javax.swing.JFrame {
         deleteBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteBTNActionPerformed(evt);
-            }
-        });
-
-        moveLastBTN.setText("MOVE LAST");
-        moveLastBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moveLastBTNActionPerformed(evt);
             }
         });
 
@@ -248,42 +239,37 @@ public class MusicManagerGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(129, 129, 129)
+                .addComponent(clearBTN)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(exitBTN)
+                .addGap(153, 153, 153))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(96, 96, 96)
-                                        .addComponent(printList2BTN))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                                        .addComponent(move2BTN)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(move3BTN)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(25, 25, 25)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(repeatTGL)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(printList3BTN)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(printList1BTN)))))
-                                .addGap(12, 12, 12))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(searchLBL)
-                                    .addComponent(deleteLBL)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addGap(360, 360, 360)
+                                    .addComponent(deleteLBL))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(deleteBTN)
-                                    .addComponent(searchBTN))))
-                        .addContainerGap(12, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(293, 293, 293)
+                                        .addComponent(printList2BTN)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(printList3BTN))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(411, 411, 411)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(deleteBTN))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(addBTN)
+                                                .addComponent(searchBTN))))))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addContainerGap(43, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,22 +281,26 @@ public class MusicManagerGUI extends javax.swing.JFrame {
                                     .addComponent(titleLBL)
                                     .addComponent(searchTF)
                                     .addComponent(deleteTF))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addBTN)
-                        .addGap(56, 56, 56))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(moveLastBTN)
-                        .addGap(38, 38, 38))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(repeatTGL)
+                                            .addComponent(printList1BTN))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(move2BTN)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(move3BTN)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(clearBTN)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(exitBTN)
-                .addGap(158, 158, 158))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,88 +328,92 @@ public class MusicManagerGUI extends javax.swing.JFrame {
                     .addComponent(printList2BTN)
                     .addComponent(printList3BTN)
                     .addComponent(printList1BTN))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(repeatTGL)
-                    .addComponent(jLabel2))
-                .addGap(33, 33, 33)
+                    .addComponent(jLabel2)
+                    .addComponent(repeatTGL))
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(move2BTN)
                     .addComponent(move3BTN)
                     .addComponent(jLabel3))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(clearBTN)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(exitBTN)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                        .addComponent(moveLastBTN)
-                        .addGap(24, 24, 24))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(clearBTN)
+                    .addComponent(exitBTN))
+                .addGap(41, 41, 41))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBTNActionPerformed
-        String newItem = addTF.getText(); // Get the text from the JTextField
-        myApp.addItem(newItem); // Call the addItem method of your ItemManager instance
-        addTF.setText(""); // Clear the text field after adding
+        // Gets the text from the JTextField
+        String newItem = addTF.getText(); 
+        // Calls the addItem method of MusicManagerApp instance
+        myApp.addItem(newItem); 
+        // Clears the text field after adding
+        addTF.setText(""); 
     }//GEN-LAST:event_addBTNActionPerformed
 
     private void deleteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTNActionPerformed
-        String itemToDelete = deleteTF.getText(); // Get the text from the JTextField
-        myApp.deleteItem(itemToDelete); // Call the deleteItem method of your ItemManager instance
-        deleteTF.setText(""); // Clear the text field after deleting
+         // Gets the text from the JTextField
+        String itemToDelete = deleteTF.getText();
+         // Calls the deleteItem method of MusicManagerApp instance
+        myApp.deleteItem(itemToDelete);
+         // Clears the text field after deleting
+        deleteTF.setText("");
     }//GEN-LAST:event_deleteBTNActionPerformed
 
-    private void moveLastBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveLastBTNActionPerformed
-        //        myItemManager.moveLastItemToList2Or3(); // Call the moveLastItemToList2Or3 method of your ItemManager instance
-    }//GEN-LAST:event_moveLastBTNActionPerformed
-
     private void clearBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBTNActionPerformed
-        outputTextArea.setText(""); // Clear the text area
+        // Clears the text area
+        outputTextArea.setText(""); 
     }//GEN-LAST:event_clearBTNActionPerformed
 
     private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed
-        String searchQuery = searchTF.getText(); // Get the text from the JTextField
-        myApp.searchItem(searchQuery); // Call the searchItem method of your ItemManager instance
-        searchTF.setText(""); // Clear the text field after searching
+        // Gets the text from the JTextField
+        String searchQuery = searchTF.getText();
+        // Calls the searchItem method of MusicManagerApp instance
+        myApp.searchItem(searchQuery); 
+        // Clears the text field after searching
+        searchTF.setText(""); 
     }//GEN-LAST:event_searchBTNActionPerformed
 
     private void exitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTNActionPerformed
-        System.exit(0); // Terminate the program
+        // Terminates the program
+        System.exit(0);
     }//GEN-LAST:event_exitBTNActionPerformed
 
     private void repeatTGLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repeatTGLActionPerformed
-        repeatListEnabled = repeatTGL.isSelected(); // Update repeatListEnabled variable
-        // You can add code here to inform your ItemManager class about the change in repeatListEnabled
+        // Updates repeatListEnabled variable
+        repeatListEnabled = repeatTGL.isSelected(); 
     }//GEN-LAST:event_repeatTGLActionPerformed
 
     private void printList1BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printList1BTNActionPerformed
-        myApp.printList(1); // Call the printList method of your ItemManager instance with 1 as the argument
+        // Calls the printList method of the MusicManagerApp instance with 1 as the argument
+        myApp.printList(1);
     }//GEN-LAST:event_printList1BTNActionPerformed
 
     private void move2BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_move2BTNActionPerformed
-        // Call moveLastItemToList2 method of ItemManager when moveToList2BTN is clicked
+        // Calls moveLastItemToList2 method of MusicManagerApp when moveToList2BTN is clicked
         myApp.moveLastItemToList2();
     }//GEN-LAST:event_move2BTNActionPerformed
 
     private void printList2BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printList2BTNActionPerformed
-        myApp.printList(2); // Call the printList method of your ItemManager instance with 2 as the argument
+        // Calls the printList method of MusicManagerApp instance with 2 as the argument
+        myApp.printList(2);
     }//GEN-LAST:event_printList2BTNActionPerformed
 
     private void move3BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_move3BTNActionPerformed
-        // Call moveLastItemToList3 method of ItemManager when moveToList3BTN is clicked
+        // Calls moveLastItemToList3 method of MusicManagerApp when moveToList3BTN is clicked
         myApp.moveLastItemToList3();
     }//GEN-LAST:event_move3BTNActionPerformed
 
     private void printList3BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printList3BTNActionPerformed
-        myApp.printList(3); // Call the printList method of your ItemManager instance with 3 as the argument
+        // Calls the printList method of MusicManagerApp instance with 3 as the argument
+        myApp.printList(3); 
     }//GEN-LAST:event_printList3BTNActionPerformed
 
     /**
@@ -472,7 +466,6 @@ public class MusicManagerGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton move2BTN;
     private javax.swing.JButton move3BTN;
-    private javax.swing.JButton moveLastBTN;
     private javax.swing.JTextArea outputTextArea;
     private javax.swing.JButton printList1BTN;
     private javax.swing.JButton printList2BTN;

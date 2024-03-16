@@ -10,9 +10,9 @@ import java.util.Iterator;
  */
 
 public class MusicManagerApp {
-    // Stack for managing added items
+    // Stack for managing added songs
     private ArrayListStack<String> stack;
-    // Doubly linked lists for managing items in different categories
+    // Doubly linked lists for managing songs in different categories
     private ArrayListDLL<String> list1, list2, list3;
     // Flag to indicate whether repeating lists is enabled
     private boolean repeatEnabled = false;//enables repeat
@@ -69,7 +69,7 @@ public class MusicManagerApp {
     
     //Generates a string of the list
     public String printList(int listNumber) {
-        StringBuilder output = new StringBuilder("List " + listNumber + ":\n");
+        StringBuilder output = new StringBuilder("");
         ArrayListDLL<String> selectedList;
         if (listNumber == 1) {
             selectedList = list1;
@@ -83,7 +83,7 @@ public class MusicManagerApp {
         
         // Repeat the list if repeatEnabled is true
         if (repeatEnabled) {
-            for (int i = 0; i < 2; i++) { // Repeat the list twice
+            for (int i = 0; i < 3; i++) { // Repeats the list 3 times to demonstrate repeat function
                 for (String item : selectedList.getList()) {
                     output.append(item).append("\n");
                 }
@@ -98,11 +98,11 @@ public class MusicManagerApp {
         return output.toString();
         }
 
-    //Searches for items containing the specified query string
+    //Searches for songs containing the specified query string
     public String searchItem(String query) {
         ArrayList<String> searchResults = new ArrayList<>();
 
-        // Search through list1
+        // Search through Liked List
         Iterator<String> iterator1 = list1.getList().iterator();
         while (iterator1.hasNext()) {
             String item = iterator1.next();
@@ -111,7 +111,7 @@ public class MusicManagerApp {
             }
         }
 
-        // Search through list2
+        // Search through Genre A
         Iterator<String> iterator2 = list2.getList().iterator();
         while (iterator2.hasNext()) {
             String item = iterator2.next();
@@ -120,7 +120,7 @@ public class MusicManagerApp {
             }
         }
 
-        // Search through list3
+        // Search through Genre B
         Iterator<String> iterator3 = list3.getList().iterator();
         while (iterator3.hasNext()) {
             String item = iterator3.next();
@@ -137,7 +137,7 @@ public class MusicManagerApp {
                 output.append(result).append("\n");
             }
         } else {
-            output.append("No matching items found.");
+            output.append("Sorry no matching songs were found.");
         }
         return output.toString();
     }
@@ -155,22 +155,22 @@ public class MusicManagerApp {
         myGUI.getAddBTN().addActionListener(e -> {
             String addItem = myGUI.getAddTF().getText();
             myApp.addItem(addItem);
-            myGUI.getAddTF().setText(""); // Clear the text field after adding
+            myGUI.getAddTF().setText(""); // Clears the text field after adding
         });
         
         // action listener for deleting item
         myGUI.getDeleteBTN().addActionListener(e -> {
             String deleteItem = myGUI.getDeleteTF().getText();
             myApp.deleteItem(deleteItem);
-            myGUI.getDeleteTF().setText(""); // Clear the text field after deleting
+            myGUI.getDeleteTF().setText(""); // Clears the text field after deleting
         });
   
-        // action listener for moving last item in list 1 to list 3
+        // action listener for moving last item in Liked to Genre A
         myGUI.getMove2BTN().addActionListener(e -> {
             myApp.moveLastItemToList2();
         });
         
-        // action listener for moving last item in list 1 to list 3
+        // action listener for moving last item in Liked to Genre B
         myGUI.getMove3BTN().addActionListener(e -> {
             myApp.moveLastItemToList3();
         });
@@ -187,22 +187,22 @@ public class MusicManagerApp {
             String searchQuery = myGUI.getSearchTF().getText();
             String searchResult = myApp.searchItem(searchQuery);
             myGUI.getOutputTextArea().setText(searchResult); // Display search result
-            myGUI.getSearchTF().setText(""); // Clear the text field after searching
+            myGUI.getSearchTF().setText(""); // Clears the text field after searching
         });
         
-        // action listener for printing list1
+        // action listener for printing Liked Playlist
         myGUI.getPrintList1BTN().addActionListener(e -> {
             String list1Result = myApp.printList(1);
             myGUI.getOutputTextArea().setText(list1Result); // Display list1
         });
         
-        //Add action listener for printing list2
+        // action listener for printing Genre A playlist
         myGUI.getPrintList2BTN().addActionListener(e -> {
             String list2Result = myApp.printList(2);
             myGUI.getOutputTextArea().setText(list2Result); // Display list2
         });
         
-        //Add action listener for printing list3
+        // action listener for printing Genre B playlist
         myGUI.getPrintList3BTN().addActionListener(e -> {
             String list3Result = myApp.printList(3);
             myGUI.getOutputTextArea().setText(list3Result); // Display list3
