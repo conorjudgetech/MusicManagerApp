@@ -6,6 +6,6 @@ package musicmanager;
  * @author Conor Judge
  */
 
-public interface Stack {
-    
+public interface Stack <T> {//<T> the type of elements stored in the stack
+
 }
